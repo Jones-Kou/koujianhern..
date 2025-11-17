@@ -1,0 +1,571 @@
+/* --- 基本重置和全局变量 --- */
+:root {
+    --primary-color: #008d8b; /* 你的主题色 (绿色) */
+    --primary-hover: #007bff; /* 悬停色 (你之前设的蓝色，如果需要可以改成深绿，例如 #026a28) */
+    --secondary-color: #ffffff; /* 你的背景色 (白色) */
+    --text-color: #000000; /* 你的文本颜色 (黑色) */
+    --light-text: rgb(0, 0, 0); /* 你的次要文本颜色 (黑色) */
+    --container-width: 1100px;
+    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    color: var(--text-color);
+    background: #fff;
+}
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--primary-hover);
+}
+
+h1, h2, h3, h4 {
+    margin-bottom: 0.75rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+h3 {
+    font-size: 1.75rem;
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 0.5rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+h3.game-dev-title {
+    margin-top: 4rem;
+}
+
+p {
+    margin-bottom: 1rem;
+    color: var(--light-text);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* --- 导航栏 --- */
+.navbar {
+    background: #fff;
+    border-bottom: 1px solid var(--secondary-color);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.navbar .nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.navbar .nav-links li {
+    margin-left: 2rem;
+}
+
+.navbar .nav-links a {
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.navbar .nav-links a:hover {
+    color: var(--primary-color);
+}
+
+.hamburger-menu {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.mobile-menu {
+    display: none;
+    flex-direction: column;
+    background: #fff;
+    position: fixed;
+    top: 61px; /* navbar 高度 */
+    left: 0;
+    width: 100%;
+    z-index: 99;
+    border-bottom: 1px solid var(--secondary-color);
+}
+
+.mobile-menu li {
+    list-style: none;
+}
+
+.mobile-menu li a {
+    display: block;
+    padding: 1rem 2rem;
+    text-align: center;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.mobile-menu li a:hover {
+    background: var(--secondary-color);
+}
+
+/* --- 按钮 --- */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: #fff;
+    border: 1px solid var(--primary-color);
+}
+
+.btn-primary:hover {
+    background: var(--primary-hover);
+    color: #fff;
+}
+
+.btn-secondary {
+    background: #fff;
+    color: var(--text-color);
+    border: 1px solid #ccc;
+    margin-left: 1rem;
+}
+
+.btn-secondary:hover {
+    background: var(--secondary-color);
+    color: var(--text-color);
+}
+
+.btn-link {
+    font-weight: 600;
+    display: inline-block;
+    margin-top: 0.5rem;
+    margin-right: 1.5rem;
+}
+
+.btn-link i {
+    margin-right: 0.3rem;
+    transition: transform 0.3s;
+}
+
+.btn-link:hover i {
+    transform: translateX(3px);
+}
+
+/* --- Hero 区域 --- */
+.hero {
+    background: var(--secondary-color);
+    padding: 6rem 0;
+    text-align: center;
+}
+
+.hero p1{
+    padding: 0; /* 移除旧的内边距 */
+    font-size: 1.2rem; /* 稍微增大字体，提高可读性 */
+    font-weight: bold;
+
+}
+
+
+.hero h1 {
+    font-size: 3.5rem;
+    color: var(--text-color);
+    color: #02542f;
+}
+
+.hero h2 {
+    font-size: 3.5rem;
+    color: var(--text-color);
+    color:#02542f;
+}
+
+
+.hero .subtitle {
+    font-size: 1.25rem;
+    color: var(--light-text);
+    max-width: 600px;
+    margin: 1rem auto 2rem;
+}
+
+
+/*-------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+.skills-box {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 25px;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.05);
+  font-family: Poppins, sans-serif;
+}
+
+.skills-box h3 {
+  font-size: 22px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.skill {
+  margin-bottom: 20px;
+}
+
+.skill span {
+  font-size: 16px;
+  font-weight: 500;
+  display: block;
+}
+
+.progress {
+  width: 100%;
+  height: 10px;
+  background: #f1f1f1;
+  border-radius: 5px;
+  margin-top: 8px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 10px;
+  background: #4a90e2;
+  border-radius: 5px;
+  transition: width 0.8s ease;
+}
+
+.percent {
+  font-size: 14px;
+  margin-top: 4px;
+  color: #555;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*-------------------------------------------------------------------------------------------------------------------------*/
+
+
+/* --- 项目区域 (已更新为Z字形布局) --- */
+.projects-section {
+    padding: 4rem 0;
+    /* 给项目区域一个非常浅的背景色，使其与白色卡片区分开 */
+    background: #ffffff; 
+}
+
+/* 1. 修改 .project-grid */
+/* 不再是网格，而是垂直堆叠的“列表” */
+.project-grid {
+    display: flex; /* 使用 flex 布局 */
+    flex-direction: column; /* 垂直堆叠 */
+    gap: 3rem; /* 卡片之间的垂直间距 */
+}
+
+/* 2. 重写 .project-card 布局 */
+.project-card {
+    display: flex; /* 关键：让卡片内部使用 flex 布局 (图 + 文) */
+    align-items: center; /* 垂直居中对齐 */
+    background: #fff; /* 卡片使用纯白背景 */
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden; /* 保持圆角切割图片 */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+    min-height: 380px; /* 给卡片一个最小高度，防止内容太少时变形 */
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    /* 沿用你的绿色悬停阴影 */
+    box-shadow: 0 8px 20px rgba(3, 92, 33, 0.1); 
+}
+
+/* 3. 新增：.project-card-image (图片容器) */
+.project-card-image {
+    flex: 1 1 55%; /* 图片区域占 55% 宽度 */
+    height: 100%;
+    align-self: stretch; /* 关键：让图片容器拉伸以占满卡片高度 */
+}
+
+/* 4. 修改 .project-card img 样式 */
+.project-card img {
+    width: 100%;
+    height: 100%; /* 占满父容器 (.project-card-image) */
+    object-fit: cover; /* 关键：裁剪以填充，保持图片比例不变形 */
+    border-bottom: none; /* 移除旧的边框 */
+}
+
+/* 5. 新增：.project-card-content (文字容器) */
+.project-card-content {
+    flex: 1 1 45%; /* 文字区域占 45% 宽度 */
+    padding: 2.5rem; /* 在文字周围添加足够的内边距 */
+}
+
+/* 6. 修改 h4 和 p (因为它们现在有父内边距了) */
+.project-card h4 {
+    font-size: 1.50rem;
+    color: #02542f; /* 沿用你的橙色标题 */
+    padding: 0; /* 移除旧的内边距 */
+}
+
+.project-card p {
+    padding: 0; /* 移除旧的内边距 */
+    font-size: 1rem; /* 稍微增大字体，提高可读性 */
+    
+}
+
+.project-card p1 {
+    padding: 0; /* 移除旧的内边距 */
+    font-size: 1.2rem; /* 稍微增大字体，提高可读性 */
+    font-weight: bold;
+    
+}
+
+.project-card .btn-link,
+.project-card .game-links {
+    padding: 0; /* 移除旧的内边距 */
+    margin-top: 1.5rem; /* 链接和上方文字的距离 */
+}
+
+
+
+.case-btn {
+    display: inline-block;
+    padding: 12px 18px;
+    margin-top: 10px;
+    margin-right: 10px;
+    background: #ffffff;
+    border: 2px solid #4a90e2;
+    border-radius: 10px;
+    color: #4a90e2;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.case-btn:hover {
+    background: #4a90e2;
+    color: #ffffff;
+}
+
+
+/* 7. 关键：实现 "Z" 字形交错布局 */
+/* :nth-child(even) 选择所有“偶数”的卡片 (第2, 4, 6...个) */
+.project-card:nth-child(even) {
+    flex-direction: row-reverse; /* 关键：翻转内部元素的顺序 (图右, 文左) */
+}
+/* --- 项目区域结束 --- */
+
+
+
+
+
+
+
+
+
+
+
+.photo-gallery {
+    max-width: 100%;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.photo-gallery h3 {
+    margin-bottom: 15px;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.auto-scroll {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.scroll-track {
+    display: inline-flex;
+    gap: 12px;
+    animation: scroll 35s linear infinite;
+}
+
+.scroll-track img {
+    height: 260px;   /* 📌 图片变大 */
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- 页脚 --- */
+.footer {
+    background: var(--text-color);
+    color: #ffffff;
+    padding: 3rem 0;
+    text-align: center;
+}
+
+.footer .social-links {
+    margin: 1rem 0;
+}
+
+.footer .social-links a {
+    color: #fff;
+    font-size: 1.75rem;
+    margin: 0 0.75rem;
+    transition: opacity 0.3s;
+}
+
+.footer .social-links a:hover {
+    opacity: 0.7;
+}
+
+.footer .copyright {
+    color: #ffffff;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    margin-bottom: 0;
+}
+
+/* --- 响应式设计 --- */
+@media (max-width: 768px) {
+    h2 {
+        font-size: 2rem;
+    }
+    
+    .navbar .nav-links {
+        display: none;
+    }
+
+    .hamburger-menu {
+        display: block;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    /* --- 项目区域的响应式 --- */
+    
+    /* 在手机上，卡片布局改回垂直 */
+    .project-card {
+        flex-direction: column; /* 关键：强制改为垂直堆叠 (图上, 文下) */
+        min-height: auto; /* 取消最小高度限制 */
+    }
+    
+    /* 关键：在手机上，把偶数卡片的翻转效果也取消掉 */
+    .project-card:nth-child(even) {
+        flex-direction: column; 
+    }
+    
+    /* 让图片和文字区域都占满100%宽度 */
+    .project-card-image,
+    .project-card-content {
+        flex-basis: auto; /* 取消 55%/45% 的分配 */
+        width: 100%;
+    }
+    
+    .project-card-image {
+         height: 250px; /* 在手机上给个固定的图片高度 */
+         align-self: auto;
+    }
+
+    .project-card img {
+        height: 250px; /* 确保图片高度一致 */
+    }
+    
+    .project-card-content {
+        padding: 1.5rem; /* 手机上内边距小一点 */
+    }
+
+    /* --- 关于我区域的响应式 --- */
+
+    .about-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .profile-pic {
+        width: 200px;
+        height: 200px;
+        margin-bottom: 1rem;
+    }
+}
